@@ -7,7 +7,7 @@ function Error({ error, reset }: { error: Error; reset: () => void }) {
 	}, [error]);
 
 	return (
-		<div className="flex h-screen  w-full flex-col  items-center justify-center bg-slate-800 ">
+		<div className="flex h-[80dvh]  w-full flex-col  items-center justify-center bg-slate-800 ">
 			<div
 				className="flex w-full flex-col items-center
        justify-center bg-slate-50 px-4 py-2 shadow-md md:w-[30%]"

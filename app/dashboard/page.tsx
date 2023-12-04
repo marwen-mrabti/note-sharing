@@ -15,6 +15,7 @@ export default function DashboardPage() {
 	const { user } = useAuthContext();
 
 	useEffect(() => {
+		//redirect to home page if user is not logged in
 		if (!user) {
 			redirect("/");
 		}
@@ -27,6 +28,7 @@ export default function DashboardPage() {
 		id: ""
 	});
 
+	//add player to the database
 	const addPlayer = async () => {
 		await addDoc(collection(db, "PokerPlanning"), {
 			username: user?.displayName,
@@ -46,10 +48,13 @@ export default function DashboardPage() {
 				});
 
 				setActivePlayers(playersArr);
+
+				//get current player
 				const currentPlayer = playersArr.find(
 					(item: TPlayer) => item.username === user?.displayName
 				);
 
+				//if current player is not in the database, add it
 				if (!currentPlayer) {
 					addPlayer();
 					return;
