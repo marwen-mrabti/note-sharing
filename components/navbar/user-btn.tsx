@@ -4,14 +4,10 @@ import { useAuthContext } from "@/context/auth-context";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
-	DropdownMenuGroup,
 	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
 	DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 
@@ -21,25 +17,20 @@ export function UserBtn() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild className="cursor-pointer">
-				{user?.photoURL && user?.displayName && (
-					<Image
-						src={user?.photoURL}
-						alt={user?.displayName}
-						width="40"
-						height="40"
-						className="rounded-full"
-					/>
-				)}
+				<div className="flex items-center gap-2">
+					{user?.photoURL && user?.displayName && (
+						<Image
+							src={user?.photoURL}
+							alt={user?.displayName}
+							width="32"
+							height="32"
+							className="rounded-full"
+						/>
+					)}
+					<span className="text-sm font-semibold">{user?.displayName}</span>
+				</div>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent className="w-48">
-				<DropdownMenuLabel>My Account</DropdownMenuLabel>
-				<DropdownMenuSeparator />
-				<DropdownMenuGroup>
-					<DropdownMenuItem disabled className="cursor-pointer disabled:cursor-not-allowed">
-						Profile
-					</DropdownMenuItem>
-				</DropdownMenuGroup>
-				<DropdownMenuSeparator />
+			<DropdownMenuContent className="w-24">
 				<DropdownMenuItem
 					className="cursor-pointer disabled:cursor-not-allowed"
 					onClick={() => {

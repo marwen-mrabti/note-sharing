@@ -1,8 +1,6 @@
 "use client";
 import { useEffect } from "react";
 
-// Error components must be Client components
-
 function Error({ error, reset }: { error: Error; reset: () => void }) {
 	useEffect(() => {
 		console.error(error);
@@ -10,7 +8,6 @@ function Error({ error, reset }: { error: Error; reset: () => void }) {
 
 	return (
 		<div className="flex h-screen  w-full flex-col  items-center justify-center bg-slate-800 ">
-			{/* <Image src={errorImg} alt="error" className="mb-8 w-56" /> */}
 			<div
 				className="flex w-full flex-col items-center
        justify-center bg-slate-50 px-4 py-2 shadow-md md:w-[30%]"

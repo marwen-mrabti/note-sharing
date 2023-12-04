@@ -4,16 +4,19 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { SignInBtn } from "@/components/signIn-btn";
 import { useAuthContext } from "@/context/auth-context";
+import { useEffect } from "react";
 
 export default function HomePage() {
 	const { user } = useAuthContext();
 
-	if (user) {
-		redirect("/notes");
-	}
+	useEffect(() => {
+		if (user) {
+			redirect("/notes");
+		}
+	}, [user]);
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
+		<main className="flex min-h-screen flex-col items-center justify-between px-5 py-10 lg:p-24">
 			<div className="flex items-center justify-center overflow-hidden rounded-md ">
 				<Image
 					src="/logo.png"

@@ -55,7 +55,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 		<AuthContext.Provider value={{ user, googleSignIn, githubSignIn, logOut }}>
 			{loading ? (
 				<div className="flex min-h-screen w-full items-center justify-center text-3xl">
-					Loading...
+					Loading <span className="animate-pulse">...</span>
 				</div>
 			) : (
 				children
