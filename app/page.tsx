@@ -11,7 +11,7 @@ export default function HomePage() {
 
 	useEffect(() => {
 		if (user) {
-			redirect("/notes");
+			redirect("/dashboard");
 		}
 	}, [user]);
 

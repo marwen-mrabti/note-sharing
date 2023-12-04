@@ -16,19 +16,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<AuthContextProvider>
 					{children}
 					<Toaster
-						position="top-right"
+						position="top-center"
 						reverseOrder={false}
 						gutter={8}
 						containerClassName="z-50"
 						toastOptions={{
-							duration: 2000,
-							style: {
-								background: "#333",
-								color: "#fff"
-							},
-							success: {
-								duration: 2000
-							}
+							duration: 3000
 						}}
 					/>
 				</AuthContextProvider>

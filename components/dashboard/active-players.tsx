@@ -1,15 +1,15 @@
-type TPlayer = {
+export type TPlayer = {
 	id: string;
-	player: string;
+	username: string;
 	note: string;
 };
 
 export default function ActivePlayers({ activePlayers }: { activePlayers: TPlayer[] }) {
 	return (
-		<ul className="flex items-center justify-center gap-4">
+		<ul className="flex flex-wrap items-center justify-start gap-4 md:justify-center">
 			{activePlayers.map((item) => (
 				<li key={item.id}>
-					<PlayerCard player={item.player} note={item.note} />
+					<PlayerCard player={item.username} note={item.note} />
 				</li>
 			))}
 		</ul>
